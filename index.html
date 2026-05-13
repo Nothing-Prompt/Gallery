@@ -18,41 +18,56 @@
 
     .container{ width:100%; max-width:700px; margin:auto; position: relative; }
     
-    /* HEADER (BALANCED SCALE) */
+    /* HEADER SECTION */
     .hero{ padding:30px 0 10px; display: flex; flex-direction: column; align-items: center; }
-    .hero-top, .hero-bot { font-family: 'Syncopate', sans-serif; font-size: clamp(2.2rem, 11vw, 3.5rem); line-height: 0.9; font-weight: 700; letter-spacing: -1.5px; text-align: center; }
+    .hero-top, .hero-bot { font-family: 'Syncopate', sans-serif; font-size: clamp(2.2rem, 11vw, 3.5rem); line-height: 1.1; font-weight: 700; letter-spacing: -1px; text-align: center; }
     .hero-mid { display: flex; align-items: center; width: 100%; max-width: 260px; margin: 10px 0; color: var(--accent); font-size: 0.5rem; }
     .hero-line { flex-grow: 1; height: 1.2px; background: var(--accent); opacity: 0.6; }
     .hero-mid span { padding: 0 10px; letter-spacing: 4px; font-family: 'Syncopate'; font-weight: 700; }
     .hero-sub { font-size: 0.5rem; font-weight: 800; letter-spacing: 3px; color: #444; text-transform: uppercase; margin-top: 4px; }
 
-    /* SOSMED COMPACT */
-    .social-area { margin-top: 15px; display: flex; align-items: center; gap: 6px; font-size: 0.55rem; font-weight: 700; text-transform: uppercase; }
-    .social-btn { color: #fff; border: 1px solid var(--accent); padding: 5px 12px; border-radius: 7px; background: var(--charcoal); backdrop-filter: blur(5px); transition: 0.3s; }
-    .social-btn:hover { background: var(--accent); color: #000; }
+    /* SOCIAL AREA (TRANSPARENT BOX RESTORED) */
+    .social-area-container { margin-top: 20px; display: flex; justify-content: center; width: 100%; }
+    .social-box { 
+        background: rgba(15, 15, 15, 0.5); 
+        border: 1px solid var(--white-trans); 
+        padding: 8px 16px; 
+        border-radius: 10px; 
+        backdrop-filter: blur(5px);
+        display: flex; 
+        align-items: center; 
+        gap: 12px; 
+        font-family: 'Syncopate', sans-serif; 
+        font-size: 0.5rem; 
+        font-weight: 700; 
+        letter-spacing: 1px; 
+        color: #555; 
+    }
+    .social-link { color: var(--accent); transition: 0.3s; cursor: pointer; text-transform: uppercase; }
+    .social-link:hover { color: #fff; text-shadow: 0 0 5px var(--accent); }
+    .social-divider { color: #222; font-weight: 300; }
 
     /* STATUS & NAV */
-    .status-container { margin-top: 20px; display: flex; flex-direction: column; align-items: center; gap: 8px; }
-    .status-bar { font-size: 0.6rem; font-weight: 700; letter-spacing: 1.2px; color: #333; text-transform: uppercase; }
+    .status-container { margin-top: 25px; display: flex; flex-direction: column; align-items: center; gap: 8px; }
     .pagination { margin: 10px 0; display: flex; justify-content: center; align-items: center; gap: 12px; }
     .nav-btn { background:#000; color:var(--accent); width:35px; height:35px; border-radius:50%; border:1px solid var(--accent); cursor:pointer; font-weight:700; display:flex; align-items:center; justify-content:center; transition:0.3s; }
     .nav-btn:disabled { border-color: #fff; opacity: 0.2; }
     .page-current { color: var(--accent); font-weight: 700; font-size: 0.85rem; }
 
-    /* SEARCH BAR (TRANSPARENT WHITE) */
+    /* SEARCH BAR */
     .search-input { width: 100%; max-width: 380px; height: 42px; background: rgba(15,15,15,0.6); border: 1px solid var(--white-trans); border-radius: 11px; padding: 0 18px; color: #fff; font-size: 0.8rem; outline: none; margin: 20px auto 0; display: block; backdrop-filter: blur(5px); }
 
-    /* GRID & CARD (COMPACT) */
+    /* GRID & CARD */
     .feed{ margin-top:25px; display:grid; grid-template-columns:repeat(2,1fr); gap:10px; align-items: start; }
     .card{ background: transparent; padding:8px; border-radius:16px; border:1px solid var(--white-trans); cursor: pointer; transition: 0.3s; }
     .card:hover { border-color: var(--accent-trans); transform: translateY(-2px); }
     .card img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 11px; opacity: 0.9; }
-    .card-title{ font-size:0.65rem; font-weight:700; color:#fff; text-transform:uppercase; margin-top:10px; line-height: 1.2; }
+    .card-title{ font-size:0.65rem; font-weight:700; color:#fff; text-transform:uppercase; margin-top:10px; line-height: 1.4; }
     .card-price-box { border: 1px solid var(--accent-trans); padding: 4px 9px; border-radius: 5px; margin-top: 8px; align-self: flex-start; background: rgba(223, 255, 46, 0.05); }
     .card-price { color: var(--accent); font-size: 0.6rem; font-weight: 700; font-family: monospace; }
 
-    /* FOOTER (REDUCED SPACE) */
-    .footer { margin-top: 40px; padding: 20px 0; text-align: center; color: #151515; font-size: 0.6rem; border-top: 1px solid #0a0a0a; font-family: 'Syncopate'; }
+    /* FOOTER */
+    footer { margin-top: 40px; padding: 20px 0; text-align: center; color: #151515; font-size: 0.6rem; border-top: 1px solid #0a0a0a; font-family: 'Syncopate'; }
 
     /* MODAL */
     #overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:9999; justify-content:center; align-items:center; padding:20px; backdrop-filter: blur(12px); opacity:0; transition:0.3s; }
@@ -74,10 +89,13 @@
         <div class="hero-bot">NOTHING</div>
         <div class="hero-sub">AI IMAGE GENERATION</div>
 
-        <div class="social-area">
-            <a href="https://www.tiktok.com/@nothxie" target="_blank" class="social-btn">TikTok</a>
-            <a href="https://www.instagram.com/nameless.prompter" target="_blank" class="social-btn">Instagram</a>
-            <a href="https://whatsapp.com/channel/0029VajYI0vI1rcm78A7Zp1B" target="_blank" class="social-btn">Saluran</a>
+        <!-- RESTORED BOXED DUAL NAV -->
+        <div class="social-area-container">
+            <div class="social-box">
+                <span>SOSMED: <a href="https://www.tiktok.com/@nothxie?_r=1&_t=ZS-96H0tpV7FFI" target="_blank" class="social-link">TIKTOK</a></span>
+                <span class="social-divider">|</span>
+                <span>JASA EDIT: <a href="https://wa.me/6285155296786" target="_blank" class="social-link">WHATSAPP</a></span>
+            </div>
         </div>
 
         <div class="status-container">
@@ -99,22 +117,22 @@
         <button class="nav-btn" onclick="changePage(1)" id="nextBot">></button>
     </div>
 
-    <footer class="footer">© NOTHING • AI CREATOR</footer>
+    <footer>© NOTHING • AI CREATOR</footer>
 </div>
 
 <div id="overlay" onclick="closeOverlay()">
     <div class="full-card" onclick="event.stopPropagation()">
         <img id="m-img" class="full-img" src="">
         <div id="m-title" style="font-weight:800; font-size:0.9rem; text-transform:uppercase; margin-bottom:4px;"></div>
-        <div class="card-price-box" style="margin-bottom:12px;"><div id="m-price" class="card-price"></div></div>
-        <input type="text" class="lock-input" id="m-input" placeholder="ENTER KEY" style="width:100%; height:38px; background:#0a0a0a; border:1px solid #1a1a1a; color:var(--accent); text-align:center; border-radius:10px; margin-bottom:8px; font-weight:700; outline:none;">
+        <div class="card-price-box" style="margin-bottom:15px;"><div id="m-price" class="card-price"></div></div>
+        <input type="text" id="m-input" placeholder="ENTER KEY" style="width:100%; height:38px; background:#0a0a0a; border:1px solid #1a1a1a; color:var(--accent); text-align:center; border-radius:10px; margin-bottom:8px; font-weight:700; outline:none; font-family:'Space Grotesk';">
         <button class="view-btn" id="m-btn" onclick="verifyKey()">COPY PROMPT</button>
-        <button class="buy-btn" onclick="buyKey()" style="width:100%; height:32px; background:transparent; color:#444; border:1px solid var(--white-trans); border-radius:8px; cursor:pointer; font-size:0.6rem; font-weight:700; margin-top:8px; text-transform:uppercase;">PURCHASE KEY</button>
+        <button onclick="buyKey()" style="width:100%; height:32px; background:transparent; color:#444; border:1px solid var(--white-trans); border-radius:8px; cursor:pointer; font-size:0.6rem; font-weight:700; margin-top:8px; text-transform:uppercase; font-family:'Space Grotesk';">PURCHASE KEY</button>
     </div>
 </div>
 
 <script>
-// Logic script tetap solid & reset state tiap buka modal
+// Logic script tetap solid
 const WA_NUMBER = "6285155296786"; const DATA_URL = "https://gist.githubusercontent.com/Nothing-Prompt/a15861e94f408c9d85c1b7f4c561c540/raw/7a890bec48e974ef1da0c5deaafbd64f3a06d07c/gistfile1.txt";
 let allPrompts = [], filteredPrompts = [], currentPage = 1, itemsPerPage = 6, activeId = null;
 async function loadData() { try { const res = await fetch(DATA_URL); const rawText = await res.text(); const blocks = rawText.split('###').map(b => b.trim()).filter(b => b); allPrompts = blocks.map((block, index) => { let d = { id: index, title: "No Title", img: "", key: "", price: "FREE", prompt: "" }; block.split('\n').forEach(l => { const c = l.trim(); if (/^judul:/i.test(c)) d.title = c.replace(/^judul:/i, '').trim(); if (/^link gambar:/i.test(c)) d.img = c.replace(/^link gambar:/i, '').trim(); if (/^harga:/i.test(c)) d.price = c.replace(/^harga:/i, '').trim(); if (/^key:/i.test(c)) d.key = c.replace(/^key:/i, '').trim(); if (/^teks-prompt:/i.test(c)) d.prompt = l.replace(/^teks-prompt:/i, '').trim(); }); return d; }); filteredPrompts = [...allPrompts]; updateUI(); } catch (e) { console.error(e); } }
@@ -125,7 +143,7 @@ function closeOverlay() { document.getElementById('overlay').classList.remove('s
 function dismissOverlay(e) { if(e.target.id === 'overlay') closeOverlay(); }
 function changePage(step) { currentPage += step; updateUI(); window.scrollTo({top: 0, behavior: 'smooth'}); }
 function verifyKey() { const btn = document.getElementById('m-btn'), input = document.getElementById('m-input').value.trim(); if (input === allPrompts.find(x => x.id === activeId).key) { navigator.clipboard.writeText(allPrompts.find(x => x.id === activeId).prompt); btn.innerText = "✓ COPIED"; setTimeout(closeOverlay, 1500); } else { btn.innerText = "WRONG KEY!"; btn.style.background = "var(--error)"; setTimeout(() => { btn.innerText = "COPY PROMPT"; btn.style.background = "var(--accent)"; }, 1200); } }
-function buyKey() { const p = allPrompts.find(x => x.id === activeId); window.open(`https://wa.me/${WA_NUMBER}?text=Halo, beli key: ${p.title}`); }
+function buyKey() { const p = allPrompts.find(x => x.id === activeId); window.open(`https://wa.me/${6285155296786}?text=Halo, beli key: ${p.title}`); }
 loadData();
 </script>
 </body>
