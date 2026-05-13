@@ -133,7 +133,7 @@
 
 <script>
 // Logic script tetap solid
-const WA_NUMBER = "6285155296786"; const DATA_URL = "https://gist.githubusercontent.com/Nothing-Prompt/a15861e94f408c9d85c1b7f4c561c540/raw/7a890bec48e974ef1da0c5deaafbd64f3a06d07c/gistfile1.txt";
+const WA_NUMBER = "6285155296786"; const DATA_URL = "https://gist.githubusercontent.com/Nothing-Prompt/a15861e94f408c9d85c1b7f4c561c540/raw/32322bed50f2fcdf289cec7731714686921ea52f/gistfile1.txt";
 let allPrompts = [], filteredPrompts = [], currentPage = 1, itemsPerPage = 6, activeId = null;
 async function loadData() { try { const res = await fetch(DATA_URL); const rawText = await res.text(); const blocks = rawText.split('###').map(b => b.trim()).filter(b => b); allPrompts = blocks.map((block, index) => { let d = { id: index, title: "No Title", img: "", key: "", price: "FREE", prompt: "" }; block.split('\n').forEach(l => { const c = l.trim(); if (/^judul:/i.test(c)) d.title = c.replace(/^judul:/i, '').trim(); if (/^link gambar:/i.test(c)) d.img = c.replace(/^link gambar:/i, '').trim(); if (/^harga:/i.test(c)) d.price = c.replace(/^harga:/i, '').trim(); if (/^key:/i.test(c)) d.key = c.replace(/^key:/i, '').trim(); if (/^teks-prompt:/i.test(c)) d.prompt = l.replace(/^teks-prompt:/i, '').trim(); }); return d; }); filteredPrompts = [...allPrompts]; updateUI(); } catch (e) { console.error(e); } }
 function handleSearch() { filteredPrompts = allPrompts.filter(p => p.title.toLowerCase().includes(document.getElementById("searchInput").value.toLowerCase())); currentPage = 1; updateUI(); }
