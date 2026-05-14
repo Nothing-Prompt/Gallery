@@ -165,14 +165,19 @@
 <div id="overlay" onclick="closeOverlay()">
     <div class="full-card-border" onclick="event.stopPropagation()">
         <div class="full-card">
-            <img id="m-img" class="full-img" src="">
-            <div id="m-title" style="font-weight:800; font-size:0.9rem; text-transform:uppercase; margin-bottom:10px;"></div>
+            
+            <!-- FIXED POSISI BADGE POPUP -->
+            <div style="position: relative; width: 100%; display: inline-block;">
+                <div id="m-badge" class="badge-new" style="display:none; top: 12px; right: 12px;">NEW</div>
+                <img id="m-img" class="full-img" src="" style="margin-bottom: 0;">
+            </div>
+
+            <div id="m-title" style="font-weight:800; font-size:0.9rem; text-transform:uppercase; margin: 15px 0 10px;"></div>
             <div class="popup-price" id="m-price"></div>
+            
             <input type="text" id="m-input" placeholder="ENTER KEY" style="width:100%; height:38px; background:#0a0a0a; border:1px solid #1a1a1a; color:var(--accent); text-align:center; border-radius:10px; margin-bottom:8px; font-weight:700; outline:none; font-family:'Space Grotesk';">
             <button class="view-btn" id="m-btn" onclick="verifyKey()">COPY PROMPT</button>
             <button onclick="buyKey()" style="width:100%; height:32px; background:transparent; color:var(--accent); border:none; cursor:pointer; font-size:0.6rem; font-weight:700; margin-top:8px; text-transform:uppercase; font-family:'Space Grotesk'; opacity:0.6;">Purchase Key</button>
-            
-            <!-- TOMBOL CLOSE BARU DI SINI -->
             <button class="close-popup-btn" onclick="closeOverlay()">Close</button>
         </div>
     </div>
@@ -200,9 +205,7 @@ async function loadData() {
             return d; 
         }); 
 
-        // [REVERSE]: Data terbaru muncul paling atas
         allPrompts.reverse(); 
-
         filteredPrompts = [...allPrompts]; 
         updateUI(); 
     } catch (e) { console.error(e); } 
@@ -220,7 +223,6 @@ function updateUI() {
     const paginatedItems = filteredPrompts.slice(start, start + itemsPerPage);
 
     paginatedItems.forEach((p, index) => { 
-        // [LABEL NEW]: Hanya untuk item pertama di halaman pertama
         const isNew = (currentPage === 1 && index === 0);
         const newBadge = isNew ? `<div class="badge-new">NEW</div>` : "";
 
@@ -248,12 +250,22 @@ function selectPost(id) {
 }
 
 function openOverlay(id) { 
-    activeId = id; const p = allPrompts.find(x => x.id === id); 
+    activeId = id; 
+    const p = allPrompts.find(x => x.id === id); 
+    
+    const badgeElement = document.getElementById('m-badge');
+    if (allPrompts.length > 0 && allPrompts[0].id === id) {
+        badgeElement.style.display = 'block';
+    } else {
+        badgeElement.style.display = 'none';
+    }
+
     document.getElementById('m-img').src = p.img; 
     document.getElementById('m-title').innerText = p.title; 
     document.getElementById('m-price').innerText = p.price; 
     document.getElementById('m-input').value = ""; 
-    document.getElementById('m-btn').innerText = "COPY PROMPT"; document.getElementById('m-btn').style.background = "var(--accent)"; 
+    document.getElementById('m-btn').innerText = "COPY PROMPT"; 
+    document.getElementById('m-btn').style.background = "var(--accent)"; 
     document.getElementById('overlay').style.display = 'flex'; 
     setTimeout(() => document.getElementById('overlay').classList.add('show'), 10); 
 }
@@ -277,7 +289,7 @@ function verifyKey() {
 
 function buyKey() { 
     const p = allPrompts.find(x => x.id === activeId); 
-    window.open(`https://wa.me/6285155296786?text=Halo, saya mau beli key untuk: ${p.title}`); 
+    window.open(`https://wa.me/6285155296786?text=Halo bang, saya mau beli key untuk: ${p.title}`); 
 }
 loadData();
 </script>
