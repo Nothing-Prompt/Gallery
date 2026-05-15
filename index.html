@@ -9,175 +9,87 @@
     :root{ --bg:#050505; --accent:#dfff2e; --error:#ff4d4d; --accent-trans: rgba(223, 255, 46, 0.2); --white-trans: rgba(255, 255, 255, 0.1); }
     *{ margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color: transparent; text-decoration: none !important; }
     body{ font-family:'Space Grotesk',sans-serif; background:var(--bg); color:#fff; padding:0 6px 20px; overflow-x:hidden; }
-
-    /* BACKGROUND ELEMENTS */
     .bg-container { position:fixed; inset:0; z-index:-5; pointer-events:none; overflow:hidden; background: var(--bg); }
     .bg-gradient { position: absolute; inset: 0; background: radial-gradient(circle at 10% 10%, rgba(223, 255, 46, 0.1) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(223, 255, 46, 0.05) 0%, transparent 40%); filter: blur(80px); }
     .bg-x-grid { position: absolute; width: 200%; height: 200%; top: -50%; left: -50%; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 60px 60px; transform: rotate(35deg); }
     .bg-dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 25px 25px; }
-
     .container{ width:100%; max-width:700px; margin:auto; position: relative; }
-    
-    /* HEADER */
     .hero{ padding:30px 0 10px; display: flex; flex-direction: column; align-items: center; }
     .hero-top, .hero-bot { font-family: 'Syncopate', sans-serif; font-size: clamp(2.2rem, 11vw, 3.5rem); line-height: 1.1; font-weight: 700; letter-spacing: -1px; text-align: center; }
     .hero-mid { display: flex; align-items: center; width: 100%; max-width: 260px; margin: 10px 0; color: var(--accent); font-size: 0.5rem; }
     .hero-line { flex-grow: 1; height: 1.2px; background: var(--accent); opacity: 0.6; }
     .hero-mid span { padding: 0 10px; letter-spacing: 4px; font-family: 'Syncopate'; font-weight: 700; }
     .hero-sub { font-size: 0.5rem; font-weight: 800; letter-spacing: 3px; color: #444; text-transform: uppercase; margin-top: 4px; }
-
     .social-box { background: rgba(15, 15, 15, 0.5); border: 1px solid var(--white-trans); padding: 8px 16px; border-radius: 10px; backdrop-filter: blur(5px); display: flex; align-items: center; gap: 12px; font-family: 'Syncopate'; font-size: 0.5rem; font-weight: 700; color: #555; margin-top: 20px; }
     .social-link { color: var(--accent); cursor: pointer; text-transform: uppercase; }
-
-    /* SEARCH BAR */
     .search-input { width: 100%; max-width: 380px; height: 42px; background: rgba(15,15,15,0.6); border: 1px solid var(--white-trans); border-radius: 11px; padding: 0 18px; color: #fff; font-size: 0.8rem; outline: none; margin: 25px auto 0; display: block; backdrop-filter: blur(5px); }
-
-    /* NAVIGATOR */
     .pagination { margin: 20px 0 10px; display: flex; justify-content: center; align-items: center; gap: 15px; }
     .nav-btn { background:#000; color:var(--accent); width:35px; height:35px; border-radius:50%; border:1px solid var(--accent); cursor:pointer; font-weight:700; display:flex; align-items:center; justify-content:center; transition:0.3s; }
     .nav-btn:disabled { border-color: #fff; opacity: 0.2; }
     .page-current { color: var(--accent); font-weight: 700; font-size: 0.85rem; font-family: 'Syncopate'; }
-
-    /* CARD GRID */
     .feed{ margin-top:25px; display:grid; grid-template-columns:repeat(2,1fr); gap:10px; align-items: start; }
     .card{ background: transparent; padding:8px; border-radius:16px; border:1px solid var(--white-trans); cursor: pointer; transition: 0.3s; position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; text-align: center; }
-
-    /* NEW BADGE */
-    .badge-new { 
-        position: absolute; top: 12px; right: 12px; background: var(--accent); color: #000; 
-        font-family: 'Syncopate'; font-size: 0.45rem; font-weight: 900; padding: 3px 7px; 
-        border-radius: 4px; box-shadow: 0 0 10px var(--accent-trans); z-index: 2; 
-    }
-
-    /* KLIK SHINE */
-    .card::before { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(to right, transparent, rgba(223, 255, 46, 0.4), transparent); transform: skewX(-25deg); transition: 0.5s; }
-    .card.active-shine::before { left: 150%; }
-
+    .badge-new { position: absolute; top: 12px; right: 12px; background: var(--accent); color: #000; font-family: 'Syncopate'; font-size: 0.45rem; font-weight: 900; padding: 3px 7px; border-radius: 4px; box-shadow: 0 0 10px var(--accent-trans); z-index: 2; }
     .card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 0 15px var(--accent-trans); }
     .card img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 11px; opacity: 0.9; }
-    .card-title{ font-size:0.65rem; font-weight:700; color:#fff; text-transform:uppercase; margin-top:12px; line-height: 1.4; width: 100%; }
-    
-    /* ICON MATA (VIEW) - CENTERED */
+    .card-title{ font-size:0.65rem; font-weight:700; color:#fff; text-transform:uppercase; margin-top:12px; line-height: 1.4; width: 100%; word-break: break-word; }
     .view-icon { margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 6px; color: var(--accent); font-size: 0.6rem; font-weight: 700; font-family: 'Syncopate'; }
     .view-icon svg { width: 12px; height: 12px; fill: var(--accent); }
-
-    /* POPUP NEON VOLT */
     #overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:9999; justify-content:center; align-items:center; padding:20px; backdrop-filter: blur(12px); opacity:0; transition:0.3s; }
     #overlay.show { opacity: 1; }
-    
-    .full-card-border {
-        position: relative;
-        width: 100%;
-        max-width: 274px;
-        padding: 2px;
-        border-radius: 26px;
-        overflow: hidden;
-        transform: scale(0.9);
-        transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
+    .full-card-border { position: relative; width: 100%; max-width: 274px; padding: 2px; border-radius: 26px; overflow: hidden; transform: scale(0.9); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
     #overlay.show .full-card-border { transform: scale(1); }
-
-    .full-card-border::before {
-        content: '';
-        position: absolute;
-        width: 150%;
-        height: 150%;
-        top: -25%;
-        left: -25%;
-        background: conic-gradient(transparent, var(--accent), transparent, var(--accent), transparent);
-        animation: rotate-neon 4s linear infinite;
-    }
-
-    @keyframes rotate-neon {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-    }
-
-    .full-card { 
-        background: #000; 
-        width: 100%; 
-        padding: 22px; 
-        border-radius: 24px; 
-        position: relative;
-        z-index: 1;
-        text-align: center;
-    }
-
+    .full-card-border::before { content: ''; position: absolute; width: 150%; height: 150%; top: -25%; left: -25%; background: conic-gradient(transparent, var(--accent), transparent, var(--accent), transparent); animation: rotate-neon 4s linear infinite; }
+    @keyframes rotate-neon { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .full-card { background: #000; width: 100%; padding: 22px; border-radius: 24px; position: relative; z-index: 1; text-align: center; }
     .full-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 14px; margin-bottom: 12px; }
     .popup-price { border: 1px solid var(--accent-trans); padding: 5px 12px; border-radius: 6px; display: inline-block; background: rgba(223, 255, 46, 0.05); margin-bottom: 15px; color: var(--accent); font-size: 0.7rem; font-weight: 700; font-family: monospace; }
-
     .view-btn { width:100%; height:42px; background:var(--accent); color:#000; font-weight:800; border:none; border-radius:10px; cursor:pointer; font-size: 0.7rem; font-family: 'Syncopate'; }
-
-    /* FOOTER & CLOSE BUTTON */
-    footer { 
-        margin-top: 60px; padding: 30px 10px; text-align: center; 
-        border-top: 1px solid rgba(255,255,255,0.05); color: #333; 
-        font-family: 'Syncopate'; font-size: 0.55rem; letter-spacing: 2px;
-    }
-    footer span { color: var(--accent); opacity: 0.8; }
-
-    .close-popup-btn {
-        width: 100%; height: 32px; background: rgba(255,255,255,0.03); color: #666; 
-        border: 1px solid rgba(255,255,255,0.05); cursor: pointer; border-radius: 8px;
-        font-size: 0.6rem; font-weight: 700; margin-top: 15px; 
-        text-transform: uppercase; font-family: 'Syncopate'; transition: 0.3s;
-    }
-    .close-popup-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+    .close-popup-btn { width: 100%; height: 32px; background: rgba(255,255,255,0.03); color: #666; border: 1px solid rgba(255,255,255,0.05); cursor: pointer; border-radius: 8px; font-size: 0.6rem; font-weight: 700; margin-top: 15px; text-transform: uppercase; font-family: 'Syncopate'; transition: 0.3s; }
+    footer { margin-top: 60px; padding: 30px 10px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); color: #333; font-family: 'Syncopate'; font-size: 0.55rem; letter-spacing: 2px; }
 </style>
 </head>
 <body onclick="dismissOverlay(event)">
-
 <div class="bg-container"><div class="bg-dots"></div><div class="bg-gradient"></div><div class="bg-x-grid"></div></div>
-
 <div class="container">
     <div class="hero">
         <div class="hero-top">PROMPT</div>
         <div class="hero-mid"><div class="hero-line"></div><span>BY</span><div class="hero-line"></div></div>
         <div class="hero-bot">NOTHING</div>
         <div class="hero-sub">AI IMAGE GENERATION</div>
-        <div class="social-area-container">
-            <div class="social-box">
-                <span>SOSMED: <a href="https://www.tiktok.com/@nothxie" target="_blank" class="social-link">TIKTOK</a></span>
-                <span style="color:#222">|</span>
-                <span>JASA EDIT: <a href="https://wa.me/6285155296786" target="_blank" class="social-link">WHATSAPP</a></span>
-            </div>
+        <div class="social-box">
+            <span>SOSMED: <a href="https://www.tiktok.com/@nothxie" target="_blank" class="social-link">TIKTOK</a></span>
+            <span style="color:#222">|</span>
+            <span>JASA EDIT: <a href="https://wa.me/6285155296786" target="_blank" class="social-link">WHATSAPP</a></span>
         </div>
     </div>
-
     <input type="text" id="searchInput" class="search-input" placeholder="Search archive..." onkeyup="handleSearch()">
-    
     <div class="pagination">
         <button class="nav-btn" onclick="changePage(-1)" id="prevTop"><</button>
         <span class="page-current" id="pageDisplayTop">1</span>
         <button class="nav-btn" onclick="changePage(1)" id="nextTop">></button>
     </div>
-
     <div id="feed" class="feed"></div>
-
     <div class="pagination" style="margin: 40px 0;">
         <button class="nav-btn" onclick="changePage(-1)" id="prevBot"><</button>
         <span class="page-current" id="pageDisplayBot">1</span>
         <button class="nav-btn" onclick="changePage(1)" id="nextBot">></button>
     </div>
-    <footer>© 2026 <span>NOTHING</span> • AI VISUAL CREATOR • ALL RIGHTS RESERVED</footer>
+    <footer>© 2026 <span>NOTHING</span> • AI VISUAL CREATOR</footer>
 </div>
 
 <div id="overlay" onclick="closeOverlay()">
     <div class="full-card-border" onclick="event.stopPropagation()">
         <div class="full-card">
-            
-            <!-- FIXED POSISI BADGE POPUP -->
             <div style="position: relative; width: 100%; display: inline-block;">
                 <div id="m-badge" class="badge-new" style="display:none; top: 12px; right: 12px;">NEW</div>
                 <img id="m-img" class="full-img" src="" style="margin-bottom: 0;">
             </div>
-
             <div id="m-title" style="font-weight:800; font-size:0.9rem; text-transform:uppercase; margin: 15px 0 10px;"></div>
             <div class="popup-price" id="m-price"></div>
-            
             <input type="text" id="m-input" placeholder="ENTER KEY" style="width:100%; height:38px; background:#0a0a0a; border:1px solid #1a1a1a; color:var(--accent); text-align:center; border-radius:10px; margin-bottom:8px; font-weight:700; outline:none; font-family:'Space Grotesk';">
             <button class="view-btn" id="m-btn" onclick="verifyKey()">COPY PROMPT</button>
-            <button onclick="buyKey()" style="width:100%; height:32px; background:transparent; color:var(--accent); border:none; cursor:pointer; font-size:0.6rem; font-weight:700; margin-top:8px; text-transform:uppercase; font-family:'Space Grotesk'; opacity:0.6;">Purchase Key</button>
+            <button onclick="buyKey()" style="background:transparent; color:var(--accent); border:none; cursor:pointer; font-size:0.6rem; font-weight:700; margin-top:8px; text-transform:uppercase; opacity:0.6;">Purchase Key</button>
             <button class="close-popup-btn" onclick="closeOverlay()">Close</button>
         </div>
     </div>
@@ -192,29 +104,34 @@ async function loadData() {
         const res = await fetch(DATA_URL); 
         const rawText = await res.text(); 
         const blocks = rawText.split('###').map(b => b.trim()).filter(b => b); 
+        
         allPrompts = blocks.map((block, index) => { 
             let d = { id: index, title: "No Title", img: "", key: "", price: "FREE", prompt: "" }; 
-            block.split('\n').forEach(l => { 
-                const c = l.trim(); 
-                if (/^judul:/i.test(c)) d.title = c.replace(/^judul:/i, '').trim(); 
-                if (/^link gambar:/i.test(c)) d.img = c.replace(/^link gambar:/i, '').trim(); 
-                if (/^harga:/i.test(c)) d.price = c.replace(/^harga:/i, '').trim(); 
-                if (/^key:/i.test(c)) d.key = c.replace(/^key:/i, '').trim(); 
-                if (/^teks-prompt:/i.test(c)) d.prompt = l.replace(/^teks-prompt:/i, '').trim(); 
-            }); 
+            
+            // Mencari field satu per satu dengan regex yang lebih akurat
+            const getField = (regex) => {
+                const match = block.match(regex);
+                return match ? match[1].trim() : "";
+            };
+
+            d.title = getField(/judul:\s*(.*)/i);
+            d.img = getField(/link gambar:\s*(.*)/i);
+            d.price = getField(/harga:\s*(.*)/i);
+            d.key = getField(/key:\s*(.*)/i);
+            
+            // Khusus prompt: ambil semua teks dari "teks-prompt:" sampai akhir blok
+            const promptMatch = block.match(/teks-prompt:\s*([\s\S]*)$/i);
+            if (promptMatch) {
+                d.prompt = promptMatch[1].trim();
+            }
+
             return d; 
         }); 
 
         allPrompts.reverse(); 
         filteredPrompts = [...allPrompts]; 
         updateUI(); 
-    } catch (e) { console.error(e); } 
-}
-
-function handleSearch() { 
-    filteredPrompts = allPrompts.filter(p => p.title.toLowerCase().includes(document.getElementById("searchInput").value.toLowerCase())); 
-    currentPage = 1; 
-    updateUI(); 
+    } catch (e) { console.error("Error load data:", e); } 
 }
 
 function updateUI() { 
@@ -225,22 +142,23 @@ function updateUI() {
     paginatedItems.forEach((p, index) => { 
         const isNew = (currentPage === 1 && index === 0);
         const newBadge = isNew ? `<div class="badge-new">NEW</div>` : "";
-
         feed.insertAdjacentHTML('beforeend', `
             <div class="card" id="card-${p.id}" onclick="selectPost(${p.id})">
                 ${newBadge}
                 <img src="${p.img}" loading="lazy">
                 <div class="card-title">${p.title}</div>
-                <div class="view-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-                    VIEW
-                </div>
+                <div class="view-icon"><svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>VIEW</div>
             </div>`); 
     }); 
     const totalPages = Math.ceil(filteredPrompts.length / itemsPerPage) || 1; 
     document.getElementById("pageDisplayTop").innerText = currentPage; document.getElementById("pageDisplayBot").innerText = currentPage; 
     document.getElementById("prevTop").disabled = document.getElementById("prevBot").disabled = (currentPage === 1); 
     document.getElementById("nextTop").disabled = document.getElementById("nextBot").disabled = (currentPage === totalPages); 
+}
+
+function handleSearch() { 
+    filteredPrompts = allPrompts.filter(p => p.title.toLowerCase().includes(document.getElementById("searchInput").value.toLowerCase())); 
+    currentPage = 1; updateUI(); 
 }
 
 function selectPost(id) {
@@ -250,16 +168,9 @@ function selectPost(id) {
 }
 
 function openOverlay(id) { 
-    activeId = id; 
-    const p = allPrompts.find(x => x.id === id); 
-    
-    const badgeElement = document.getElementById('m-badge');
-    if (allPrompts.length > 0 && allPrompts[0].id === id) {
-        badgeElement.style.display = 'block';
-    } else {
-        badgeElement.style.display = 'none';
-    }
-
+    activeId = id; const p = allPrompts.find(x => x.id === id); 
+    const b = document.getElementById('m-badge');
+    b.style.display = (allPrompts[0].id === id) ? 'block' : 'none';
     document.getElementById('m-img').src = p.img; 
     document.getElementById('m-title').innerText = p.title; 
     document.getElementById('m-price').innerText = p.price; 
@@ -270,27 +181,35 @@ function openOverlay(id) {
     setTimeout(() => document.getElementById('overlay').classList.add('show'), 10); 
 }
 
-function closeOverlay() { 
-    document.getElementById('overlay').classList.remove('show'); 
-    setTimeout(() => { 
-        document.getElementById('overlay').style.display = 'none'; 
-        document.querySelectorAll('.card').forEach(c => c.classList.remove('active-shine')); 
-    }, 300); 
-}
-function dismissOverlay(e) { if(e.target.id === 'overlay') closeOverlay(); }
-function changePage(step) { currentPage += step; updateUI(); window.scrollTo({top: 0, behavior: 'smooth'}); }
-
 function verifyKey() { 
     const btn = document.getElementById('m-btn'), input = document.getElementById('m-input').value.trim(); 
     const p = allPrompts.find(x => x.id === activeId);
-    if (input === p.key) { navigator.clipboard.writeText(p.prompt); btn.innerText = "✓ COPIED"; setTimeout(closeOverlay, 1500); } 
-    else { btn.innerText = "WRONG KEY!"; btn.style.background = "var(--error)"; setTimeout(() => { btn.innerText = "COPY PROMPT"; btn.style.background = "var(--accent)"; }, 1200); } 
+    if (p && input === p.key) { 
+        // Menggunakan navigator.clipboard.writeText untuk menjaga karakter spesial dan enter
+        navigator.clipboard.writeText(p.prompt).then(() => {
+            btn.innerText = "✓ COPIED"; btn.style.background = "#2ecc71";
+            setTimeout(closeOverlay, 1500); 
+        }).catch(err => {
+            // Fallback jika clipboard gagal
+            const el = document.createElement('textarea');
+            el.value = p.prompt;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            btn.innerText = "✓ COPIED"; btn.style.background = "#2ecc71";
+            setTimeout(closeOverlay, 1500);
+        });
+    } else { 
+        btn.innerText = "WRONG KEY!"; btn.style.background = "var(--error)"; 
+        setTimeout(() => { btn.innerText = "COPY PROMPT"; btn.style.background = "var(--accent)"; }, 1200); 
+    } 
 }
 
-function buyKey() { 
-    const p = allPrompts.find(x => x.id === activeId); 
-    window.open(`https://wa.me/6285155296786?text=Halo bang, saya mau beli key untuk: ${p.title}`); 
-}
+function closeOverlay() { document.getElementById('overlay').classList.remove('show'); setTimeout(() => { document.getElementById('overlay').style.display = 'none'; document.querySelectorAll('.card').forEach(c => c.classList.remove('active-shine')); }, 300); }
+function dismissOverlay(e) { if(e.target.id === 'overlay') closeOverlay(); }
+function changePage(step) { currentPage += step; updateUI(); window.scrollTo({top: 0, behavior: 'smooth'}); }
+function buyKey() { const p = allPrompts.find(x => x.id === activeId); window.open(`https://wa.me/6285155296786?text=Halo, saya mau beli key untuk: ${p.title}`); }
 loadData();
 </script>
 </body>
